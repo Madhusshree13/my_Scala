@@ -1,0 +1,19 @@
+// Scala program to check two given integers, and return true if one of them is 30 or if their sum is 30.
+object CheckIntegers {
+  def main(args: Array[String]): Unit = {
+    val num1 = 15 // Replace with your first integer
+    val num2 = 15 // Replace with your second integer
+    
+    val result = checkIfSumOrOneIs30(num1, num2)
+    
+    println(result)
+  }
+
+  def checkIfSumOrOneIs30(num1: Int, num2: Int): Boolean = {
+    if (num1 == 30 || num2 == 30 || num1 + num2 == 30) {
+      true
+    } else {
+      false
+    }
+  }
+}
