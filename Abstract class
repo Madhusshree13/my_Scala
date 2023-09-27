@@ -1,0 +1,22 @@
+abstract class Shape {
+  def area: Double // Abstract method to calculate the area
+}
+
+class Rectangle(width: Double, height: Double) extends Shape {
+  override def area: Double = width * height
+}
+
+class Circle(radius: Double) extends Shape {
+  override def area: Double = Math.PI * radius * radius
+}
+
+object Main {
+  def main(args: Array[String]): Unit = {
+    val rectangle = new Rectangle(5.0, 4.0)
+    val circle = new Circle(3.0)
+
+    println(s"Rectangle Area: ${rectangle.area}")
+    println(s"Circle Area: ${circle.area}")
+  }
+}
+
