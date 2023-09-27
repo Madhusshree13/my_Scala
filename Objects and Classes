@@ -1,0 +1,22 @@
+//objects and classes
+object Person { def defaultName() = "nobody" }  
+class Person(val name: String, var age: Int) {
+def getName() : String = name
+}
+// surprise, Person is really an object  
+val singleton = Person  
+Person.defaultName()
+println(Person.defaultName)
+
+//class
+object Person { def defaultName() = "nobody" }  
+class Person(val name: String, var age: Int) {
+def getName() : String = name
+}
+// surprise, Person is really an object  
+val singleton = Person  
+Person.defaultName()
+println(Person.defaultName)
+
+
+
