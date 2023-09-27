@@ -1,0 +1,38 @@
+class Person {
+  private var _name: String = ""
+  private var _age: Int = 0
+  private var _country: String = ""
+
+  def name: String = _name
+  def age: Int = _age
+  def country: String = _country
+
+  def name_=(newName: String): Unit = {
+    _name = newName
+  }
+
+  def age_=(newAge: Int): Unit = {
+    if (newAge >= 0) {
+      _age = newAge
+    } else {
+      throw new IllegalArgumentException("Age cannot be negative")
+    }
+  }
+
+  def country_=(newCountry: String): Unit = {
+    _country = newCountry
+  }
+
+  override def toString: String = s"Name: $name, Age: $age, Country: $country"
+}
+
+object Main {
+  def main(args: Array[String]): Unit = {
+    val person = new Person()
+    person.name = "Alice"
+    person.age = 30
+    person.country = "USA"
+
+    println(person)
+  }
+}
