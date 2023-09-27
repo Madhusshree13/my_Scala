@@ -1,0 +1,43 @@
+// Define the custom type class
+trait Converter[A, B] {
+  def convert(a: A): B
+}
+
+// Create instances of the Converter type class for specific conversions
+object ConverterInstances {
+  implicit val stringToIntConverter: Converter[String, Int] = (a: String) => a.toInt
+  implicit val intToStringConverter: Converter[Int, String] = (a: Int) => a.toString
+  // Add more instances for other conversions if needed
+}
+
+// Companion object for the Converter type class to provide convenient syntax
+object Converter {
+  def apply[A, B](implicit instance: Converter[A, B]): Converter[A, B] = instance
+}
+
+// Application demonstrating usage of the Converter type class
+object TypeClassExample {
+  def main(args: Array[String]): Unit = {
+    import ConverterInstances._
+
+    println("Select the conversion:")
+    println("1. String to Int")
+    println("2. Int to String")
+    val choice = scala.io.StdIn.readInt()
+
+    choice match {
+      case 1 =>
+        println("Enter a number as a string:")
+        val input = scala.io.StdIn.readLine()
+        val result = Converter[String, Int].convert(input)
+        println(s"Converted to Int: $result")
+      case 2 =>
+        println("Enter an integer:")
+        val input = scala.io.StdIn.readInt()
+        val result = Converter[Int, String].convert(input)
+        println(s"Converted to String: $result")
+      case _ =>
+        println("Invalid choice.")
+    }
+  }
+}
