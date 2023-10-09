@@ -1,0 +1,33 @@
+// Define the Person class
+class Person(val name: String, val age: Int) {
+  override def toString: String = s"Name: $name\nAge: $age"
+}
+
+// Define the Student class that extends Person
+class Student(name: String, age: Int, private var _grade: String) extends Person(name, age) {
+  // Getter for grade
+  def grade: String = _grade
+
+  // Setter for grade
+  def grade_=(newGrade: String): Unit = {
+    _grade = newGrade
+  }
+
+  override def toString: String = s"${super.toString}\nGrade: $grade"
+}
+
+object Main {
+  def main(args: Array[String]): Unit = {
+    // Create a Student object
+    val student = new Student("Madhu", 21, "A")
+
+    // Display student information including grade
+    println(student)
+
+    // Change the grade
+    student.grade = "B"
+    
+    // Display updated student information
+    println(student)
+  }
+}
