@@ -1,0 +1,29 @@
+object RemoveCharAtPosition {
+  def main(args: Array[String]): Unit = {
+    // Input string
+    val inputString = "Hello, World!"
+
+    // Position to remove (0-based index)
+    val positionToRemove = 7
+
+    // Check if the position is valid
+    if (positionToRemove >= 0 && positionToRemove < inputString.length) {
+      // Remove the character at the specified position
+      val resultString = removeCharAt(inputString, positionToRemove)
+      println(s"Original String: $inputString")
+      println(s"Modified String: $resultString")
+    } else {
+      println("Invalid position. Position should be in the range 0 to string length - 1.")
+    }
+  }
+
+  def removeCharAt(str: String, position: Int): String = {
+    if (position < 0 || position >= str.length) {
+      // Handle invalid position
+      str
+    } else {
+      // Remove the character at the specified position
+      str.substring(0, position) + str.substring(position + 1)
+    }
+  }
+}
