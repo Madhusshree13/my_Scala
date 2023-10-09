@@ -1,0 +1,33 @@
+class BankAccount(val accountNumber: String, var balance: Double) {
+  // Deposit method
+  def deposit(amount: Double): Unit = {
+    balance += amount
+    println(s"Deposited $amount. Updated balance: $balance")
+  }
+
+  // Withdraw method
+  def withdraw(amount: Double): Unit = {
+    if (amount <= balance) {
+      balance -= amount
+      println(s"Withdrew $amount. Updated balance: $balance")
+    } else {
+      println("Insufficient balance.")
+    }
+  }
+}
+
+object BankAccountApp {
+  def main(args: Array[String]): Unit = {
+    // Create a BankAccount instance
+    val account = new BankAccount("1234567890", 1000.0)
+
+    // Print initial account details
+    println(s"Account Number: ${account.accountNumber}")
+    println(s"Initial Balance: ${account.balance}")
+
+    // Perform deposits and withdrawals
+    account.deposit(500.0)
+    account.withdraw(200.0)
+    account.withdraw(800.0)
+  }
+}
