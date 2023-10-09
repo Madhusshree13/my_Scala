@@ -1,0 +1,21 @@
+// Define the ContactInfo class
+class ContactInfo(val name: String, val email: String, val address: String) {
+  override def toString: String = s"Name: $name\nEmail: $email\nAddress: $address"
+}
+
+// Define the Customer class with a ContactInfo object
+class Customer(val contactInfo: ContactInfo) {
+  override def toString: String = s"Customer Info:\n$contactInfo"
+}
+
+object Main {
+  def main(args: Array[String]): Unit = {
+    // Create a ContactInfo object
+    val contact = new ContactInfo("John Doe", "john@example.com", "123 Main St, City")
+
+}    // Create a Customer object with the ContactInfo
+    val customer = new Customer(contact)
+
+    // Display the customer information
+    println(customer)
+  }
