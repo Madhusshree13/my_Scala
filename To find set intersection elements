@@ -1,0 +1,20 @@
+object CommonElementsInSets {
+  def main(args: Array[String]): Unit = {
+    // Create two sets
+    val set1 = Set(1, 2, 3, 4, 5)
+    val set2 = Set(3, 4, 5, 6, 7)
+
+    // Find common elements between the sets
+    val commonElements = findCommonElements(set1, set2)
+
+    // Print the common elements
+    println("Set 1: " + set1.mkString(", "))
+    println("Set 2: " + set2.mkString(", "))
+    println("Common Elements: " + commonElements.mkString(", "))
+  }
+
+  def findCommonElements[T](set1: Set[T], set2: Set[T]): Set[T] = {
+    // Use the "&" operator to find the intersection of the sets
+    set1.intersect(set2)
+  }
+}
